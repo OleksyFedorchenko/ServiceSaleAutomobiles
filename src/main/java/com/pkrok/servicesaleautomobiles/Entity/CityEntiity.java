@@ -20,7 +20,7 @@ public class CityEntiity {
     @Column(unique = true,nullable = false)
     private String name;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "country_id")
     private CountryEntity country;
 }

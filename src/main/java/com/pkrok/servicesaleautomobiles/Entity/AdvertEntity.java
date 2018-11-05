@@ -25,7 +25,7 @@ public class AdvertEntity {
     @Column(nullable = false)
     private LocalDate end;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "model_id")
     private ModelEntity model;
 }

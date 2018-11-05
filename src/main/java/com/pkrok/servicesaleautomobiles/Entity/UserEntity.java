@@ -26,7 +26,7 @@ public class UserEntity {
     @Column(nullable = false)
     private String phone;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "city_id")
     private CityEntiity city;
 }

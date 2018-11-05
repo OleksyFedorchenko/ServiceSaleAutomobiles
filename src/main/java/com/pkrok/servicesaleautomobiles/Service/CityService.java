@@ -7,7 +7,7 @@ import java.util.List;
 public interface CityService {
     void saveCity(CityDTO city);
 
-    List<CityDTO> findAllProducts();
+    List<CityDTO> findAllCities();
 
     CityDTO findCityById(Long id);
 

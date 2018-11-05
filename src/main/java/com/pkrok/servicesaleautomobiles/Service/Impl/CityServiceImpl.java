@@ -24,7 +24,7 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public List<CityDTO> findAllProducts() {
+    public List<CityDTO> findAllCities() {
         List<CityEntiity> cityEntiities=cityRepository.findAll();
         List<CityDTO> cityDTOS=modelMapper.mapAll(cityEntiities,CityDTO.class);
         return cityDTOS;

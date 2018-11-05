@@ -7,7 +7,7 @@ import java.util.List;
 public interface CountryService {
     void saveCountry(CountryDTO country);
 
-    List<CountryDTO> findAllProducts();
+    List<CountryDTO> findAllCountries();
 
     CountryDTO findCountryById(Long id);
 

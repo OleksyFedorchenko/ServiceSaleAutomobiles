@@ -34,10 +34,10 @@ public class ModelEntity {
     private String color;
     @Column(columnDefinition = "DECIMAL(9,3)")
     private BigDecimal price;
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name="manufacturer_id")
     private ManufacturerEntity manufacturer;
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name="user_id")
     private UserEntity user;
 }

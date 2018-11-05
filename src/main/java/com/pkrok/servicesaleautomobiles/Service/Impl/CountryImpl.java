@@ -25,7 +25,7 @@ public class CountryImpl implements CountryService {
     }
 
     @Override
-    public List<CountryDTO> findAllProducts() {
+    public List<CountryDTO> findAllCountries() {
         List<CountryEntity> countryEntities=countryRepository.findAll();
         List<CountryDTO> countryDTOS=modelMapper.mapAll(countryEntities,CountryDTO.class);
         return countryDTOS;
