@@ -19,29 +19,29 @@ public class AdvertServiceImpl implements AdvertService {
 
     @Override
     public void saveAdvert(AdvertDTO advert) {
-        AdvertEntity advertEntity=modelMapper.map(advert,AdvertEntity.class);
+        AdvertEntity advertEntity = modelMapper.map(advert, AdvertEntity.class);
         advertRepository.save(advertEntity);
     }
 
     @Override
     public List<AdvertDTO> findAllAdverts() {
-        List<AdvertEntity> advertEntities=advertRepository.findAll();
-        List<AdvertDTO> advertDTOS=modelMapper.mapAll(advertEntities,AdvertDTO.class);
+        List<AdvertEntity> advertEntities = advertRepository.findAll();
+        List<AdvertDTO> advertDTOS = modelMapper.mapAll(advertEntities, AdvertDTO.class);
         return advertDTOS;
     }
 
     @Override
     public AdvertDTO findAdvertById(Long id) {
-        AdvertEntity advertEntity=advertRepository.findById(id).get();
-        AdvertDTO advertDTO=modelMapper.map(advertEntity,AdvertDTO.class);
+        AdvertEntity advertEntity = advertRepository.findById(id).get();
+        AdvertDTO advertDTO = modelMapper.map(advertEntity, AdvertDTO.class);
         return advertDTO;
     }
 
     @Override
     public void deleteAdvertById(Long id) {
-    AdvertEntity advertEntity=advertRepository.findById(id).get();
-    if(advertEntity!=null){
-        advertRepository.deleteById(id);
-    }else System.out.println("Advert not found");
+        AdvertEntity advertEntity = advertRepository.findById(id).get();
+        if (advertEntity != null) {
+            advertRepository.deleteById(id);
+        } else System.out.println("Advert not found");
     }
 }

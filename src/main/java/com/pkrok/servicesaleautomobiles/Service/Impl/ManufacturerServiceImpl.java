@@ -19,30 +19,30 @@ public class ManufacturerServiceImpl implements ManufacturerService {
 
     @Override
     public void saveManufacturer(ManufacturerDTO manufacturer) {
-        ManufacturerEntity manufacturerEntity=modelMapper.map(manufacturer,ManufacturerEntity.class);
+        ManufacturerEntity manufacturerEntity = modelMapper.map(manufacturer, ManufacturerEntity.class);
         manufacturerRepository.save(manufacturerEntity);
     }
 
     @Override
     public List<ManufacturerDTO> findAllManufacturers() {
-        List<ManufacturerEntity> manufacturerEntities=manufacturerRepository.findAll();
-        List<ManufacturerDTO> manufacturerDTOS=modelMapper.mapAll(manufacturerEntities,ManufacturerDTO.class);
+        List<ManufacturerEntity> manufacturerEntities = manufacturerRepository.findAll();
+        List<ManufacturerDTO> manufacturerDTOS = modelMapper.mapAll(manufacturerEntities, ManufacturerDTO.class);
         return manufacturerDTOS;
     }
 
     @Override
     public ManufacturerDTO findManufacturerById(Long id) {
-        ManufacturerEntity manufacturerEntity=manufacturerRepository.findById(id).get();
-        ManufacturerDTO manufacturerDTO=modelMapper.map(manufacturerEntity,ManufacturerDTO.class);
+        ManufacturerEntity manufacturerEntity = manufacturerRepository.findById(id).get();
+        ManufacturerDTO manufacturerDTO = modelMapper.map(manufacturerEntity, ManufacturerDTO.class);
         return manufacturerDTO;
     }
 
     @Override
     public void deleteManufacturerById(Long id) {
-        ManufacturerEntity manufacturerEntity=manufacturerRepository.findById(id).get();
-        if(manufacturerEntity!=null){
+        ManufacturerEntity manufacturerEntity = manufacturerRepository.findById(id).get();
+        if (manufacturerEntity != null) {
             manufacturerRepository.deleteById(id);
-        }else System.out.println("Manufacturer not found");
+        } else System.out.println("Manufacturer not found");
     }
 
 

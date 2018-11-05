@@ -35,9 +35,9 @@ public class ModelEntity {
     @Column(columnDefinition = "DECIMAL(9,3)")
     private BigDecimal price;
     @ManyToOne
-    @JoinColumn(name="manufacturer_id")
+    @JoinColumn(name = "manufacturer_id")
     private ManufacturerEntity manufacturer;
     @ManyToOne
-    @JoinColumn(name="user_id")
+    @JoinColumn(name = "user_id")
     private UserEntity user;
 }

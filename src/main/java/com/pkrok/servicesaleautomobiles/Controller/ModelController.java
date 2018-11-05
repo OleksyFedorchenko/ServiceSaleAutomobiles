@@ -26,13 +26,15 @@ public class ModelController {
         List<ModelDTO> models = modelService.findAllModels();
         return new ResponseEntity<List<ModelDTO>>(models, HttpStatus.OK);
     }
-@GetMapping("{modelID}")
+
+    @GetMapping("{modelID}")
     public ResponseEntity<ModelDTO> getModelById(@PathVariable("modelID") Long id) {
         ModelDTO model = modelService.findModelById(id);
         return new ResponseEntity<ModelDTO>(model, HttpStatus.OK);
     }
+
     @DeleteMapping("{modelId}")
-    public ResponseEntity<?> deleteModel(@PathVariable("modelId") Long id){
+    public ResponseEntity<?> deleteModel(@PathVariable("modelId") Long id) {
         modelService.deleteModelById(id);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }

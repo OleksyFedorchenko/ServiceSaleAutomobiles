@@ -19,30 +19,30 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void saveUser(UserDTO user) {
-        UserEntity userEntity=modelMapper.map(user,UserEntity.class);
+        UserEntity userEntity = modelMapper.map(user, UserEntity.class);
         userRepository.save(userEntity);
     }
 
     @Override
     public List<UserDTO> findAllUsers() {
-        List<UserEntity> userEntities=userRepository.findAll();
-        List<UserDTO> userDTOS=modelMapper.mapAll(userEntities,UserDTO.class);
+        List<UserEntity> userEntities = userRepository.findAll();
+        List<UserDTO> userDTOS = modelMapper.mapAll(userEntities, UserDTO.class);
         return userDTOS;
     }
 
     @Override
     public UserDTO findUserById(Long id) {
-        UserEntity userEntity=userRepository.findById(id).get();
-        UserDTO userDTO = modelMapper.map(userEntity,UserDTO.class);
+        UserEntity userEntity = userRepository.findById(id).get();
+        UserDTO userDTO = modelMapper.map(userEntity, UserDTO.class);
         return userDTO;
     }
 
     @Override
     public void deleteUserById(Long id) {
-        UserEntity userEntity=userRepository.findById(id).get();
-        if(userEntity!=null){
+        UserEntity userEntity = userRepository.findById(id).get();
+        if (userEntity != null) {
             userRepository.deleteById(id);
-        }else System.out.println("User not found");
+        } else System.out.println("User not found");
     }
 
 }

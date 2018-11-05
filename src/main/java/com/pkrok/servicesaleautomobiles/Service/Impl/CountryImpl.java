@@ -20,30 +20,30 @@ public class CountryImpl implements CountryService {
 
     @Override
     public void saveCountry(CountryDTO country) {
-        CountryEntity countryEntity=modelMapper.map(country,CountryEntity.class);
+        CountryEntity countryEntity = modelMapper.map(country, CountryEntity.class);
         countryRepository.save(countryEntity);
     }
 
     @Override
     public List<CountryDTO> findAllCountries() {
-        List<CountryEntity> countryEntities=countryRepository.findAll();
-        List<CountryDTO> countryDTOS=modelMapper.mapAll(countryEntities,CountryDTO.class);
+        List<CountryEntity> countryEntities = countryRepository.findAll();
+        List<CountryDTO> countryDTOS = modelMapper.mapAll(countryEntities, CountryDTO.class);
         return countryDTOS;
     }
 
     @Override
     public CountryDTO findCountryById(Long id) {
-        CountryEntity countryEntity=countryRepository.findById(id).get();
-        CountryDTO countryDTO = modelMapper.map(countryEntity,CountryDTO.class);
+        CountryEntity countryEntity = countryRepository.findById(id).get();
+        CountryDTO countryDTO = modelMapper.map(countryEntity, CountryDTO.class);
         return countryDTO;
     }
 
     @Override
     public void deleteCountryById(Long id) {
-        CountryEntity countryEntity=countryRepository.findById(id).get();
-        if(countryEntity!=null){
+        CountryEntity countryEntity = countryRepository.findById(id).get();
+        if (countryEntity != null) {
             countryRepository.deleteById(id);
-        }else System.out.println("Country not found");
+        } else System.out.println("Country not found");
     }
 
 

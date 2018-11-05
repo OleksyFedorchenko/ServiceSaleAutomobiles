@@ -1,6 +1,5 @@
 package com.pkrok.servicesaleautomobiles.Service.Impl;
 
-import com.pkrok.servicesaleautomobiles.Domain.ManufacturerDTO;
 import com.pkrok.servicesaleautomobiles.Domain.ModelDTO;
 import com.pkrok.servicesaleautomobiles.Entity.ModelEntity;
 import com.pkrok.servicesaleautomobiles.Repository.ModelRepository;
@@ -20,30 +19,30 @@ public class ModelServiceImpl implements ModelService {
 
     @Override
     public void saveModel(ModelDTO model) {
-        ModelEntity modelEntity=modelMapper.map(model,ModelEntity.class);
+        ModelEntity modelEntity = modelMapper.map(model, ModelEntity.class);
         modelRepository.save(modelEntity);
     }
 
     @Override
     public List<ModelDTO> findAllModels() {
-        List<ModelEntity> modelEntities=modelRepository.findAll();
-        List<ModelDTO> modelDTOS=modelMapper.mapAll(modelEntities, ModelDTO.class);
+        List<ModelEntity> modelEntities = modelRepository.findAll();
+        List<ModelDTO> modelDTOS = modelMapper.mapAll(modelEntities, ModelDTO.class);
         return modelDTOS;
     }
 
     @Override
     public ModelDTO findModelById(Long id) {
-        ModelEntity modelEntity=modelRepository.findById(id).get();
-        ModelDTO modelDTO = modelMapper.map(modelEntity,ModelDTO.class);
+        ModelEntity modelEntity = modelRepository.findById(id).get();
+        ModelDTO modelDTO = modelMapper.map(modelEntity, ModelDTO.class);
         return modelDTO;
     }
 
     @Override
     public void deleteModelById(Long id) {
-        ModelEntity modelEntity=modelRepository.findById(id).get();
-        if(modelEntity!=null){
+        ModelEntity modelEntity = modelRepository.findById(id).get();
+        if (modelEntity != null) {
             modelRepository.deleteById(id);
-        }else System.out.println("Model not found");
+        } else System.out.println("Model not found");
     }
 
 }

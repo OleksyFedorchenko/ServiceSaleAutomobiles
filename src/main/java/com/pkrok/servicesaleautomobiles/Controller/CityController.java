@@ -1,9 +1,7 @@
 package com.pkrok.servicesaleautomobiles.Controller;
 
 import com.pkrok.servicesaleautomobiles.Domain.CityDTO;
-import com.pkrok.servicesaleautomobiles.Domain.UserDTO;
 import com.pkrok.servicesaleautomobiles.Service.CityService;
-import com.pkrok.servicesaleautomobiles.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,13 +26,15 @@ public class CityController {
         List<CityDTO> cities = cityService.findAllCities();
         return new ResponseEntity<List<CityDTO>>(cities, HttpStatus.OK);
     }
-@GetMapping("{cityID}")
+
+    @GetMapping("{cityID}")
     public ResponseEntity<CityDTO> getCityById(@PathVariable("cityID") Long id) {
         CityDTO city = cityService.findCityById(id);
         return new ResponseEntity<CityDTO>(city, HttpStatus.OK);
     }
+
     @DeleteMapping("{cityId}")
-    public ResponseEntity<?> deleteCity(@PathVariable("userId") Long id){
+    public ResponseEntity<?> deleteCity(@PathVariable("userId") Long id) {
         cityService.deleteCityById(id);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }

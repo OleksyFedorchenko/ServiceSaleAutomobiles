@@ -19,30 +19,30 @@ public class CityServiceImpl implements CityService {
 
     @Override
     public void saveCity(CityDTO city) {
-        CityEntiity cityEntiity=modelMapper.map(city,CityEntiity.class);
+        CityEntiity cityEntiity = modelMapper.map(city, CityEntiity.class);
         cityRepository.save(cityEntiity);
     }
 
     @Override
     public List<CityDTO> findAllCities() {
-        List<CityEntiity> cityEntiities=cityRepository.findAll();
-        List<CityDTO> cityDTOS=modelMapper.mapAll(cityEntiities,CityDTO.class);
+        List<CityEntiity> cityEntiities = cityRepository.findAll();
+        List<CityDTO> cityDTOS = modelMapper.mapAll(cityEntiities, CityDTO.class);
         return cityDTOS;
     }
 
     @Override
     public CityDTO findCityById(Long id) {
-        CityEntiity cityEntiity=cityRepository.findById(id).get();
-        CityDTO cityDTO=modelMapper.map(cityEntiity,CityDTO.class);
+        CityEntiity cityEntiity = cityRepository.findById(id).get();
+        CityDTO cityDTO = modelMapper.map(cityEntiity, CityDTO.class);
         return cityDTO;
     }
 
     @Override
     public void deleteCityById(Long id) {
-        CityEntiity cityEntiity=cityRepository.findById(id).get();
-        if(cityEntiity!=null){
+        CityEntiity cityEntiity = cityRepository.findById(id).get();
+        if (cityEntiity != null) {
             cityRepository.deleteById(id);
-        }else System.out.println("City not found");
+        } else System.out.println("City not found");
     }
 
 }

@@ -26,13 +26,15 @@ public class UserController {
         List<UserDTO> users = userService.findAllUsers();
         return new ResponseEntity<List<UserDTO>>(users, HttpStatus.OK);
     }
-@GetMapping("{userID}")
+
+    @GetMapping("{userID}")
     public ResponseEntity<UserDTO> getUserById(@PathVariable("userID") Long id) {
         UserDTO user = userService.findUserById(id);
         return new ResponseEntity<UserDTO>(user, HttpStatus.OK);
     }
+
     @DeleteMapping("{userId}")
-    public ResponseEntity<?> deleteUser(@PathVariable("userId") Long id){
+    public ResponseEntity<?> deleteUser(@PathVariable("userId") Long id) {
         userService.deleteUserById(id);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }

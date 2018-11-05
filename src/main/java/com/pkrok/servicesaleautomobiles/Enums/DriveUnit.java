@@ -1,5 +1,5 @@
 package com.pkrok.servicesaleautomobiles.Enums;
 
-public enum  DriveUnit {
-    FRONT,REAR
+public enum DriveUnit {
+    FRONT, REAR
 }

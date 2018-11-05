@@ -1,9 +1,7 @@
 package com.pkrok.servicesaleautomobiles.Controller;
 
 import com.pkrok.servicesaleautomobiles.Domain.AdvertDTO;
-import com.pkrok.servicesaleautomobiles.Domain.UserDTO;
 import com.pkrok.servicesaleautomobiles.Service.AdvertService;
-import com.pkrok.servicesaleautomobiles.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,13 +26,15 @@ public class AdvertController {
         List<AdvertDTO> adverts = advertService.findAllAdverts();
         return new ResponseEntity<List<AdvertDTO>>(adverts, HttpStatus.OK);
     }
-@GetMapping("{advertID}")
+
+    @GetMapping("{advertID}")
     public ResponseEntity<AdvertDTO> getAdvertById(@PathVariable("advertID") Long id) {
         AdvertDTO advert = advertService.findAdvertById(id);
         return new ResponseEntity<AdvertDTO>(advert, HttpStatus.OK);
     }
+
     @DeleteMapping("{advertId}")
-    public ResponseEntity<?> deleteAdvert(@PathVariable("advertId") Long id){
+    public ResponseEntity<?> deleteAdvert(@PathVariable("advertId") Long id) {
         advertService.deleteAdvertById(id);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
